@@ -26,7 +26,7 @@ class Tracy extends Base
         /**
          * @var \Zer0\HTTP\HTTP $http
          */
-        $http = $this->app->broker('HTTP')->get();
+        $http = $this->app->factory('HTTP');
 
         if ($mode === 'auth') {
             $param = $config->secret_param ?? 'tracy-debug';
