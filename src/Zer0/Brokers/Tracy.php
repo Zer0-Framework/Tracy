@@ -59,7 +59,9 @@ class Tracy extends Base
                 if ($http->isAjaxRequest()) {
                     Debugger::fireLog($exception);
                 } else {
-                    ob_clean();
+                    if (ob_get_level()) {
+                        ob_clean();
+                    }
                     Debugger::exceptionHandler($exception, false);
                 }
             });
