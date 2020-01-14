@@ -19,7 +19,7 @@ class Tracy extends Base
     public function instantiate(ConfigInterface $config)
     {
         $mode = $config->mode ?? 'off';
-        if ($mode === 'off') {
+        if ($mode === 'off' || PHP_SAPI === 'cli') {
             return;
         }
 
